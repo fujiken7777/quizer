@@ -1,0 +1,11 @@
+<div class="contents row">
+  <% @quizzes.each do |quiz| %>
+    <div class="content_post" style="background-image: url(<%= quiz.image %>);">
+      <p><%= quiz.text %></p>
+      <%= simple_format(quiz.text) %>
+      <span class="name">
+        <%= quiz.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
