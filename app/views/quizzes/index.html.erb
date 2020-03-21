@@ -1,11 +1,30 @@
-<div class="contents row">
-  <% @quizzes.each do |quiz| %>
-    <div class="content_post" style="background-image: url(<%= quiz.image %>);">
-      <p><%= quiz.text %></p>
-      <%= simple_format(quiz.text) %>
-      <span class="name">
-        <%= quiz.name %>
-      </span>
-    </div>
+<div id="left">
+  <div class="side-title">カテゴリー</div>
+  <div class="side">
+    <ul>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+      <li>記事ページへのリンク</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="search-bar">
+  <%= form_with(url: "#", local: true, method: :get, class: "search-form") do |form| %>
+    <i class="search-icon fas fa-search"></i>
+    <%= form.text_field :keyword, placeholder: "Search for Quizzes", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
   <% end %>
 </div>
+
+
+
+
