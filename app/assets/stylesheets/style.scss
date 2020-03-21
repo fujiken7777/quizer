@@ -41,12 +41,12 @@ header {
 
 
 footer {
-  margin: 30px auto;
-  padding: 10px;
-  color:#808080;
+  padding-top: 18px;
+  color:white;
   position: absolute;
   left: 0;
   right: 0;
+  background-color: #f2706d;
   p {
     text-align: center;
   }
@@ -152,4 +152,10 @@ footer {
     border-radius: 5px 5px 10px 10px;
     background-color: white;
   }
+}
+
+.more_list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
