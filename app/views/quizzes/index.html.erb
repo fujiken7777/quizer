@@ -30,26 +30,39 @@
     <div class="container">
       <div class="card-list">
         <% @quizzes.each do |quiz| %>
-          <div class="quiz-card">
-            <img src="<%= quiz.image %>" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text"><%= simple_format(quiz.text) %></p>
-              <span class="name">
-                <%= quiz.name %>
-              </span>
+          <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+            <div class="quiz-card">
+              <img src="<%= quiz.image %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text"><%= simple_format(quiz.text) %></p>
+                <ul class="more_list">
+                  <li>
+                    <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
+                  </li>
+                  <li>
+                    <%= link_to '編集', "/quizzes/#{quiz.id}/edit", method: :get %>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
       <div class="card-list">
         <% @quizzes.each do |quiz| %>
           <div class="quiz-card">
+          <%= link_to "/quizzes/#{quiz.id}", method: :get %>
             <img src="<%= quiz.image %>" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-text"><%= simple_format(quiz.text) %></p>
-              <span class="name">
-                <%= quiz.name %>
-              </span>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
+                </li>
+                <li>
+                  <%= link_to '編集', "/quizzes/#{quiz.id}/edit", method: :get %>
+                </li>
+              </ul>
             </div>
           </div>
         <% end %>
