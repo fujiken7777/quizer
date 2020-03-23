@@ -16,16 +16,47 @@
       </ul>
     </div>
   </div>
-  <div class="contents row">
+  <div class="form-contents">
     <div class="container">
       <%= form_with(model: @quiz, local: true) do |form| %>
-        <h3>
-          投稿する
-        </h3>
-        <%= form.text_field :name, placeholder: "Nickname" %>
-        <%= form.text_field :image, placeholder: "Image Url" %>
-        <%= form.text_area :text, placeholder: "Quiz text" , rows: "10" %>
-        <%= form.submit "SEND" %>
+        <h3>Create a quiz</h3>
+        <div class="form-group">
+          <%= form.label :"exampleFormControlInput1", 'Quiz Title' %>
+          <%= form.text_field :name, placeholder: "type quiz title" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :"exampleFormControlSelect1", 'Genre Selection' %>
+          <%= form.select :genre_id, [['1 歴史', 1],['2 プログラミング', 2],['3 音楽', 3],['4 スポーツ', 4],['5 なぞなぞ', 5]], { include_blank: true, selected: 1 }, { id: "exampleFormControlSelect1", class: "form-control" }%>
+        </div>
+        <div class="form-group">
+          <%= form.label :"exampleFormControlFile1", 'Quiz Image' %>
+          <%= form.file_field :image, placeholder: "Image File", id: "exampleFormControlFile1", class: "form-control-file" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :"exampleFormControlTextarea1", 'Quiz Text' %>
+          <%= form.text_area :text, placeholder: "type Quiz Text", rows: "5", id: "exampleFormControlTextarea1", class: "form-control" %>
+        </div>
+        <div class = answer-form>Quiz Answer
+          <div class="form-check">
+            <div class="form-check1">
+              <%= form.check_box :answer_id, class: "form-check-input", name:"exampleRadios", id:"exampleRadios1", checked_value: "1", unchecked_value: "0" %>
+              <%= form.text_field :answer, placeholder: "type answer 1", class: "answer-column" %>
+            </div>
+            <div class="form-check2">
+              <%= form.check_box :answer_id, class: "form-check-input", name:"exampleRadios", id:"exampleRadios1", checked_value: "2", unchecked_value: "0" %>
+              <%= form.text_field :answer, placeholder: "type answer 2", class: "answer-column" %>
+            </div>
+            <div class="form-check3">
+              <%= form.check_box :answer_id, class: "form-check-input", name:"exampleRadios", id:"exampleRadios1", checked_value: "3", unchecked_value: "0" %>
+              <%= form.text_field :answer, placeholder: "type answer 3", class: "answer-column" %>
+            </div>
+            <div class="form-check4">
+              <%= form.check_box :answer_id, class: "form-check-input", name:"exampleRadios", id:"exampleRadios1", checked_value: "4", unchecked_value: "0" %>
+              <%= form.text_field :answer, placeholder: "type answer 4", class: "answer-column" %>
+            </div>
+          </div>
+        </div>
+        <%= form.submit "SEND", class:"submit-btn" %>
       <% end %>
     </div>
   </div>

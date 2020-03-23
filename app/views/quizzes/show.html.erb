@@ -17,22 +17,38 @@
     </div>
   </div>
 
-  <div class ="contents row">
-    <div class="content_post" style="background-image: url(<%= @quiz.image %>);">
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
-          </li>
-        </ul>
+  <div class ="quiz-show">
+    <div class="quiz-content">
+      <div class="quiz-main">
+        <%= image_tag @quiz.image.url, class: 'quiz-image' %>
+        <div class="quiz-text">
+          <h1 class="name"><%= @quiz.name %></h1>
+          <p><%= simple_format(@quiz.text) %></p>
+        </div>
       </div>
-      <%= simple_format(@quiz.text) %>
-      <span class="name"><%= @quiz.name %>
-      </span>
+
+      <div class="user-answer">
+        <div class="input-group">
+          <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Button</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="eidt-devise">
+        <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
+        <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
+      </div>
+      <div class="icon-contents">
+        <i class="fas fa-heart fa-2x"></i>
+        <i class="fas fa-star fa-2x"></i>
+      </div>
     </div>
   </div>
 </div>
