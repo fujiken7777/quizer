@@ -27,23 +27,16 @@
       <% end %>
     </div>
 
-    <div class="container">
+    <div class="index-contents">
       <div class="main-view">
         <div class="card-list">
           <% @quizzes.each do |quiz| %>
             <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
-              <div class="quiz-card">
+              <div class="quiz-body">
                 <img src="<%= quiz.image %>" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-text">
                   <h5 class="title"><%= simple_format(quiz.name.truncate(11)) %></h5>
-                  <ul class="more_list">
-                    <li>
-                      <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
-                    </li>
-                    <li>
-                      <%= link_to '編集', "/quizzes/#{quiz.id}/edit", method: :get %>
-                    </li>
-                  </ul>
+                  <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
                 </div>
               </div>
             <% end %>
