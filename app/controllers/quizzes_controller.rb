@@ -1,8 +1,9 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:edit, :show]
-  
+  before_action :move_to_index, except: [:index, :show]
+
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.includes(:user)
   end
 
   def new
@@ -10,7 +11,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    Quiz.create(quiz_params)
+    @quizzes = Quiz.create(quiz_params)
   end
 
   def destroy
@@ -24,6 +25,7 @@ class QuizzesController < ApplicationController
   def update
     quiz = Quiz.find(params[:id])
     quiz.update(quiz_params)
+    
   end
 
   def show
@@ -31,10 +33,14 @@ class QuizzesController < ApplicationController
 
   private
   def quiz_params
-    params.require(:quiz).permit(:name, :image, :text)
+    params.require(:quiz).permit(:name, :image, :text).merge(user_id: current_user.id)
   end
 
   def set_quiz
     @quiz = Quiz.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end

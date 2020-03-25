@@ -1,7 +1,7 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class UserImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -30,7 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-    process resize_to_fit: [400, 400]
+  #   process resize_to_fit: [50, 50]
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -41,22 +41,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
-  # 保存形式をJPGにする
-  # process :convert => 'jpg'
-
-  # サムネイルを生成する設定
-  # version :thumb do
-  #   process :resize_to_fill => [40, 40, gravity = ::Magick::CenterGravity]
-  # end
-
-
-  # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
-  # def filename
-  #   super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  # end
-
+  def filename
+  "something.jpg" if original_filename
+  end
+  process resize_to_fill: [30,30,"Center"]
+  
 end

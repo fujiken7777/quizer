@@ -1,0 +1,46 @@
+<div class="main-contents">
+  <div id="left">
+    <div class="side-title">カテゴリー</div>
+    <div class="side">
+      <ul class="side-list">
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+        <li>記事ページ</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="main-view">
+      <p><%= @nickname %>さんの投稿一覧</p>
+      <div class="card-list">
+        <% @quizzes.each do |quiz| %>
+          <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+            <div class="quiz-card">
+              <img src="<%= quiz.image %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="title"><%= simple_format(quiz.name.truncate(11)) %></h5>
+                <ul class="more_list">
+                  <li>
+                    <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
+                  </li>
+                  <li>
+                    <%= link_to '編集', "/quizzes/#{quiz.id}/edit", method: :get %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,12 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    .icon_image {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      object-fit: cover;
+    }
     .title {
       color: white;
       line-height: 60px;
@@ -25,6 +31,11 @@ header {
       }
     }
   }
+}
+
+.main-view {
+  background-image: image-url("5417.jpg");
+  background-size: cover;
 }
 
 .btn {
@@ -58,7 +69,6 @@ footer {
 
 .main-contents {
   display: flex;
-  background-color: #cff1fc;
   height: calc(100% - 118px);
 }
 
@@ -97,18 +107,18 @@ footer {
   font-size:18px;
   width:200px;
   height: 100%;
-  background-color: #7db4fd;
+  background-color: #f7f7f8;
   .side-title {
     font-weight:bold;
-    color: white;
-    background:rgb(127, 181, 243);
-    border-top: 1px rgb(127, 181, 243) solid;
-    border-right: 1px rgb(127, 181, 243) solid;
-    border-left: 1px rgb(127, 181, 243) solid;
-    border-radius: 5px 5px 0 0;
+    color: rgb(3, 3, 3);
+    background:white;
+    border-top: 5px #477bc9 outset;
+    border-right: 5px #477bc9 outset;
+    border-left: 5px #477bc9 outset;
+    border-bottom: 5px #477bc9 outset;
     text-align: center;
     height: 50px;
-    line-height: 50px;
+    line-height: 45px;
   }
   .side {
     background-color: #477bc9;
@@ -224,3 +234,19 @@ footer {
     }
   }
 }
+
+.login-contents {
+  height: calc(100% - 118px);
+  padding: 100px;
+
+  .contents-main {
+    padding: 30px;
+    width: 50%;
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(black,0.2);
+  }
+}
+
