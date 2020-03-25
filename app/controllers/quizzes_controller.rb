@@ -33,7 +33,7 @@ class QuizzesController < ApplicationController
 
   private
   def quiz_params
-    params.require(:quiz).permit(:name, :image, :text).merge(user_id: current_user.id)
+    params.require(:quiz).permit(:name, :image, :text, :correct_id, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_quiz

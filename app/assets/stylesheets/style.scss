@@ -5,8 +5,13 @@
 //   background-size: cover;
 // }
 
+body {
+  background-image: image-url("IMG_2917.jpg");
+  background-size: cover;
+}
+
 header {
-  background-color: #4dcff7;
+  background-color: rgba(77,207,247,0.5);
   width: 100%;
   height: 60px;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1);
@@ -57,11 +62,11 @@ header {
 
 footer {
   padding-top: 18px;
-  color:white;
+  color: white;
   position: absolute;
   left: 0;
   right: 0;
-  background-color: #4dcff7;
+  background-color: rgba(77,207,247,0.5);
   p {
     text-align: center;
   }
@@ -107,21 +112,20 @@ footer {
   font-size:18px;
   width:200px;
   height: 100%;
-  background-color: #f7f7f8;
   .side-title {
     font-weight:bold;
     color: rgb(3, 3, 3);
     background:white;
-    border-top: 5px #477bc9 outset;
-    border-right: 5px #477bc9 outset;
-    border-left: 5px #477bc9 outset;
-    border-bottom: 5px #477bc9 outset;
+    border-top: 5px #4dcff7 outset;
+    border-right: 5px #4dcff7 outset;
+    border-left: 5px #4dcff7 outset;
+    border-bottom: 5px #4dcff7 outset;
     text-align: center;
     height: 50px;
     line-height: 45px;
   }
   .side {
-    background-color: #477bc9;
+    background-color: #4dcff7;
     line-height:170%;
     font-weight:bold;
     color: white;
@@ -139,8 +143,8 @@ footer {
         line-height: 1.5;
         padding: 0.5em 0.5em 0.5em 1.7em;
         list-style-type: none!important;
-        background: -webkit-linear-gradient(top, #2860aa 0%, #244da7 100%);/*グラデーション*/
-        background: linear-gradient(to bottom, #2860aa 0%, #244da7 100%);/*グラデーション*/
+        background: -webkit-linear-gradient(top, #4dcff7 0%, #048eb8 100%);/*グラデーション*/
+        background: linear-gradient(to bottom, #4dcff7 0%, #048eb8 100%);/*グラデーション*/
         color: #fff;
         text-align: center;
         &:before {
@@ -155,12 +159,20 @@ footer {
   }
 }
 
+.index-contents {
+  padding: 15px;
+}
+
 .card-list {
   display: flex;
-  overflow-x: auto;
-  .quiz-card {
-    width: 20%;
-    height: 20%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-count: 5;
+  .quiz-body {
+    width: 198px;
+    height: 198px;
+    // width: 100%;
+    // height: 100%;
     margin: 20px;
     border-top: 1px rgb(71, 69, 69) solid;
     border-right: 1px rgb(71, 69, 69) solid;
@@ -168,7 +180,13 @@ footer {
     border-bottom: 1px rgb(71, 69, 69) solid;
     border-radius: 5px 5px 10px 10px;
     background-color: white;
+    box-shadow: 0 3px 6px 1px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+    transition: scale 0.1s ease-out, box-shadow 0.1s ease-out;
   }
+}
+
+.quiz-body:hover {
+  transform: scale(1.1);
 }
 
 .more_list {
