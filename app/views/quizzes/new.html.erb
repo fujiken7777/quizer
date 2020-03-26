@@ -36,13 +36,17 @@
           <%= form.label :"exampleFormControlTextarea1", 'Quiz Text' %>
           <%= form.text_area :text, placeholder: "type Quiz Text", rows: "5", id: "exampleFormControlTextarea1", class: "form-control" %>
         </div>
-        <div class = answer-form>Quiz Answer （正解を選択してください）
+        <div class = answer-form>Quiz Answer （回答を入力し、正解を選択してください！）
           <div class="form-check">
             <div class="form-check1">
-              <%= form.select :correct_id, [['1', 1], ['2', 2], ['3', 3], ['4', 4]],{ include_blank: true } %>
-              <%= form.text_field :tag_list, placeholder: "type answer 1", class: "answer-column" %>
+              <%= form.select :answer_number, [['1', 1], ['2', 2], ['3', 3], ['4', 4]],{ include_blank: true } %>
             </div>
-            
+            <div class="choice-contents">
+              <%= form.text_field :choice1, placeholder: "type answer 1", class: "answer-column" %>
+              <%= form.text_field :choice2, placeholder: "type answer 2", class: "answer-column" %>
+              <%= form.text_field :choice3, placeholder: "type answer 3", class: "answer-column" %>
+              <%= form.text_field :choice4, placeholder: "type answer 4", class: "answer-column" %>
+            </div>
           </div>
         </div>
         <%= form.submit "SEND", class:"submit-btn" %>
