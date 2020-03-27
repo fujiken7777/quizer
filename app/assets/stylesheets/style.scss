@@ -240,19 +240,23 @@ footer {
     background-image: image-url('5417.jpg');
     background-size: cover;
     padding: 30px;
-    .quiz-main {
-      display: flex;
-      margin-bottom: 30px;
-      .quiz-text {
-        padding-left: 20px;
+    .quiz-view {
+      background-color: white;
+      padding: 10px;
+      .quiz-main {
+        display: flex;
+        margin-bottom: 30px;
+        .quiz-text {
+          padding-left: 20px;
+        }
       }
-    }
-    .icon-contents {
-      .fa-heart {
-        color: rgb(214, 23, 55);
-      }
-      .fa-star {
-        color: rgb(252, 252, 5);
+      .icon-contents {
+        .fa-heart {
+          color: rgb(214, 23, 55);
+        }
+        .fa-star {
+          color: rgb(252, 252, 5);
+        }
       }
     }
   }
@@ -273,3 +277,57 @@ footer {
   }
 }
 
+.profile-contents {
+  max-width: 768px;
+  margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 4px 6px 0 rgba(0,0,0,0.11);
+  border-radius: 4px;
+  .profile-top {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 16px;
+    border-top: 6px solid #461A42;
+    color: #393A68;
+    display: flex;
+    justify-content: space-between;
+    .profile-left {
+      width: 160px;
+      height: 160px;
+      display: inline-block;
+      vertical-align: top;
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        margin: 16px auto 0;
+        .profile-icon-image {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+    .profile-middle {
+      .profile-name {
+        display: flex;
+      }
+      .profile-address {
+
+      }
+    }
+    .profile-right {
+      .edit-profile {
+        .edit-profile-btn {
+          .btn-edit-profile {
+
+          }
+        }
+      }
+    }
+  }
+  .profile-top {
+
+  }
+}

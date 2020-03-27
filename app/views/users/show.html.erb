@@ -17,16 +17,57 @@
     </div>
   </div>
 
+  <div class="search-bar">
+    <div class="profile-contents">
+      <div class="profile-top">
+        <div class="profile-left">
+          <div class="profile-img">
+            <%= image_tag current_user.user_image.url, class: "profile-icon-image" %>
+          </div>
+        </div>
+        <div class="profile-middle">
+          <div class="profile-name">
+            <h5><%= @nickname %></h5>
+            <div class="social-icons">
+              <span class="icon icon-twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </span>
+              <span class="icon icon-fb">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+          <div class="profile-address">
+            <%= @user.email %>
+          </div>
+        </div>
+        <div class="profile-right">
+          <div class="edit-profile">
+            <div class="edit-profile-btn">
+              <%= form_with(url: "#", local: true, method: :get, class: "edit-form") do |form| %>
+                <i class="search-icon far fa-edit" aria-hidden="true"></i>
+                <%= form.submit "Edit Profile", class: "search-btn" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-bottom">
+        <div class="tabs">
+          <div class="">
+        </div>
+      </div>
+    </div>
 
-  <div class="container">
-    <div class="main-view">
-      <p><%= @nickname %>さんの投稿一覧</p>
-      <div class="card-list">
-        <% @quizzes.each do |quiz| %>
-          <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
-            <div class="quiz-card">
-              <img src="<%= quiz.image %>" class="card-img-top" alt="...">
-              <div class="card-body">
+
+    <div class="index-contents">
+      <div class="main-view">
+        <p><%= @nickname %>さんの投稿一覧</p>
+        <div class="card-list">
+          <% @quizzes.each do |quiz| %>
+            <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+              <div class="quiz-body">
+                <img src="<%= quiz.image %>" class="card-img-top" alt="...">
                 <h5 class="title"><%= simple_format(quiz.name.truncate(11)) %></h5>
                 <ul class="more_list">
                   <li>
@@ -37,9 +78,9 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
