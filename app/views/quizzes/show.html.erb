@@ -17,42 +17,47 @@
     </div>
   </div>
 
-  <div class ="quiz-show">
+  <div class="quiz-show">
     <div class="quiz-content">
-      <div class="quiz-main">
-        <%= image_tag @quiz.image.url, class: 'quiz-image' %>
-        <div class="quiz-text">
-          <h1 class="name"><%= @quiz.name %></h1>
-          <p><%= simple_format(@quiz.text) %></p>
-          <p><%= simple_format(@quiz.choice1) %></p>
-          <p><%= simple_format(@quiz.choice2) %></p>
-          <p><%= simple_format(@quiz.choice3) %></p>
-          <p><%= simple_format(@quiz.choice4) %></p>
-        </div>
-      </div>
-
-      <div class="user-answer">
-        <div class="input-group">
-          <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Button</button>
+      <div class="quiz-view">
+        <div class="quiz-main">
+          <%= image_tag @quiz.image.url, class: 'quiz-image' %>
+          <div class="quiz-text">
+            <h1 class="name"><%= @quiz.name %></h1>
+            <%= simple_format(@quiz.text) %>
+            <%= simple_format(@quiz.choice1) %>
+            <%= simple_format(@quiz.choice2) %>
+            <%= simple_format(@quiz.choice3) %>
+            <%= simple_format(@quiz.choice4) %>
           </div>
         </div>
-      </div>
 
-      <div class="eidt-devise">
-        <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
-        <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
-      </div>
-      <div class="icon-contents">
-        <i class="fas fa-heart fa-2x"></i>
-        <i class="fas fa-star fa-2x"></i>
+        <div class="user-answer">
+          <div class="input-group" id="inputGroupSelect04">
+            <select class="custom-select" aria-label="Example select with button addon">
+              <option selected>回答を選んでください</option>
+              <option value="1"><%= simple_format(@quiz.choice1) %></option>
+              <option value="2"><%= simple_format(@quiz.choice2) %></option>
+              <option value="3"><%= simple_format(@quiz.choice3) %></option>
+              <option value="4"><%= simple_format(@quiz.choice4) %></option>
+            </select>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">Button</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="eidt-devise">
+          <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
+          <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
+        </div>
+        <div class="icon-contents">
+          <i class="fas fa-heart fa-2x"></i>
+          <i class="fas fa-star fa-2x"></i>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<input class='answer_number' name="answer_number" type="hidden" value='<%= @quiz.answer_number %>'>
