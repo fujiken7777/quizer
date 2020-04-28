@@ -4,10 +4,10 @@ $(function() {
     Number(selectboxes);
     var answer = $('.answer_number').val()
     if (selectboxes == answer) {
-      alert("正解");
+      alert("正解！！");
       // $('').animate({ width: 'show' }, 'slow');
     } else {
-      alert("不正解");
+      alert("残念！！");
       // $('').animate({ width: 'show' }, 'slow');
     }
   });

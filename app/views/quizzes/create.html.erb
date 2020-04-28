@@ -1,22 +1,7 @@
+<%= render partial: "header" %>
 <div class="main-contents">
-  <div id="left">
-    <div class="side-title">カテゴリー</div>
-    <div class="side">
-      <ul class="side-list">
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-      </ul>
-    </div>
-  </div>
-  <div class="contents row">
+  <%= render partial: "genre" %>
+  <div class="create-content">
     <div class="success">
       <h3>
         投稿が完了しました。
@@ -25,3 +10,4 @@
     </div>
   </div>
 </div>
+<%= render partial: "footer" %>

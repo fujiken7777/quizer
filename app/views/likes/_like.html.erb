@@ -1,0 +1,27 @@
+<div class="like-link" id="like-link-<%= quiz.id %>">
+  <%# <% if user_signed_in? %> 
+  <% if current_user.likes.find_by(quiz_id: quiz.id) %>
+    <div class="like-border">
+      <%= link_to unlike_path(quiz.id), method: :delete, remote: true, class: "like-button" do %>
+        <div class = "iine-button">
+          <i class="fas fa-heart heart animated rubberBand"></i><span>いいね！</span>
+          <div class="like-count">
+            <%= quiz.likes.count %>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  <% else %>
+    <div class="unlike-border">
+      <%= link_to like_path(quiz.id), method: :post, remote: true, class: "unlike-button" do %>
+        <div class = "iine-button">
+          <i class="far fa-heart heart">いいね！</i>
+          <div class="like-count">
+            <%= quiz.likes.count %>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  <% end %>
+  <%# <% else %>
+</div>

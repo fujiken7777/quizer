@@ -1,39 +1,24 @@
+<%= render partial: "header" %>
 <div class="main-contents">
-  <div id="left">
-    <div class="side-title">カテゴリー</div>
-    <div class="side">
-      <ul class="side-list">
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-      </ul>
-    </div>
-  </div>
+  <%= render partial: "genre" %>
   <div class="form-contents">
     <div class="container">
       <%= form_with(model: @quiz, local: true) do |form| %>
         <h3>Create a quiz</h3>
         <div class="form-group">
-          <%= form.label :"exampleFormControlInput1", 'Quiz Title' %>
+          <%= form.label :"exampleFormControlInput1", 'Quiz Title (タイトル)' %>
           <%= form.text_field :name, placeholder: "type quiz title" %>
         </div>
         <div class="form-group">
-          <%= form.label :"exampleFormControlSelect1", 'Genre Selection' %>
-          <%= form.select :genre_id, [['1 歴史', 1],['2 プログラミング', 2],['3 音楽', 3],['4 スポーツ', 4],['5 なぞなぞ', 5]], { include_blank: true, selected: 1 }, { id: "exampleFormControlSelect1", class: "form-control" }%>
+          <%= form.label :"exampleFormControlSelect1", 'Genre Selection (ジャンル)' %>
+          <%= form.collection_select :genre_id, Genre.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, { id: "exampleFormControlSelect1", class: "form-control" }%>
         </div>
         <div class="form-group">
-          <%= form.label :"exampleFormControlFile1", 'Quiz Image' %>
+          <%= form.label :"exampleFormControlFile1", 'Quiz Image (画像)' %>
           <%= form.file_field :image, placeholder: "Image File", id: "exampleFormControlFile1", class: "form-control-file" %>
         </div>
         <div class="form-group">
-          <%= form.label :"exampleFormControlTextarea1", 'Quiz Text' %>
+          <%= form.label :"exampleFormControlTextarea1", 'Quiz Text (内容)' %>
           <%= form.text_area :text, placeholder: "type Quiz Text", rows: "5", id: "exampleFormControlTextarea1", class: "form-control" %>
         </div>
         <div class = answer-form>Quiz Answer （回答を入力し、正解を選択してください！）
@@ -54,3 +39,4 @@
     </div>
   </div>
 </div>
+<%= render partial: "footer" %>
