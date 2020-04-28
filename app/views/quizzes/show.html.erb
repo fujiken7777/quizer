@@ -1,35 +1,31 @@
+<%= render partial: "header" %>
 <div class="main-contents">
-  <div id="left">
-    <div class="side-title">カテゴリー</div>
-    <div class="side">
-      <ul class="side-list">
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-      </ul>
-    </div>
-  </div>
+  <%= render partial: "genre" %>
 
   <div class="quiz-show">
     <div class="quiz-content">
       <div class="quiz-view">
         <div class="quiz-main">
           <%= image_tag @quiz.image.url, class: 'quiz-image' %>
-          <div class="quiz-text">
-            <h1 class="name"><%= @quiz.name %></h1>
+          <ul class="quiz-text">
+            <h2 class="name"><%= @quiz.name %></h2>
+            <div class="genre-text">＜ジャンル：
+              <%= @quiz.genre.value %>
+            ＞</div>
             <%= simple_format(@quiz.text) %>
-            <%= simple_format(@quiz.choice1) %>
-            <%= simple_format(@quiz.choice2) %>
-            <%= simple_format(@quiz.choice3) %>
-            <%= simple_format(@quiz.choice4) %>
-          </div>
+            <li class="choice-unswer">
+              <span>1</span><%= @quiz.choice1 %>
+            </li>
+            <li class="choice-unswer">
+              <span>2</span><%= @quiz.choice2 %>
+            </li>
+            <li class="choice-unswer">
+              <span>3</span><%= @quiz.choice3 %>
+            </li>
+            <li class="choice-unswer">
+              <span>4</span><%= @quiz.choice4 %>
+            </li>
+          </ul>
         </div>
 
         <div class="user-answer">
@@ -42,22 +38,25 @@
               <option value="4"><%= simple_format(@quiz.choice4) %></option>
             </select>
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button">Button</button>
+              <button class="btn btn-outline-secondary" type="button">回答する</button>
             </div>
           </div>
         </div>
-
-        <div class="eidt-devise">
-          <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
-          <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
-        </div>
-        <div class="icon-contents">
-          <i class="fas fa-heart fa-2x"></i>
-          <i class="fas fa-star fa-2x"></i>
+        <div class="sub-contents">
+          <div class="icon-contents">
+            <%= render 'likes/like', quiz: @quiz %>
+          </div>
+          <div class="edit-devise">
+            <% if user_signed_in? && current_user.id == @quiz.user_id %>
+              <%= link_to '削除', "/quizzes/#{@quiz.id}", method: :delete %>
+              <%= link_to '編集', "/quizzes/#{@quiz.id}/edit", method: :get %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= render partial: "footer" %>
 
 <input class='answer_number' name="answer_number" type="hidden" value='<%= @quiz.answer_number %>'>

@@ -10,20 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_121500) do
+ActiveRecord::Schema.define(version: 2020_04_28_054434) do
 
-  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "text"
-    t.text "image"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.string "choice1"
-    t.string "choice2"
-    t.string "choice3"
-    t.string "choice4"
-    t.integer "answer_number"
+  end
+
+  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "text", null: false
+    t.text "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.string "choice1", default: "", null: false
+    t.string "choice2", default: "", null: false
+    t.string "choice3", default: "", null: false
+    t.string "choice4", default: "", null: false
+    t.integer "answer_number", default: 0, null: false
+    t.integer "likes_count"
+    t.integer "genre_id", default: 0, null: false
+    t.index ["name"], name: "index_quizzes_on_name", length: 32
   end
 
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_03_25_121500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
-    t.integer "answer_id"
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
@@ -62,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_03_25_121500) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.string "user_image"
+    t.string "nickname", null: false
+    t.string "user_image", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -6,4 +6,6 @@ class User < ApplicationRecord
   
   has_many :quizzes
   mount_uploader :user_image, ImageUploader
+  has_many :likes, dependent: :destroy
+  has_many :like_stories, through: :likes, source: :quiz
 end

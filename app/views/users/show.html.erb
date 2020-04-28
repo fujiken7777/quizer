@@ -1,22 +1,6 @@
+<%= render partial: "quizzes/header" %>
 <div class="main-contents">
-  <div id="left">
-    <div class="side-title">カテゴリー</div>
-    <div class="side">
-      <ul class="side-list">
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-        <li>記事ページ</li>
-      </ul>
-    </div>
-  </div>
-
+  <%= render partial: "quizzes/genre" %>
   <div class="search-bar">
     <div class="profile-contents">
       <div class="profile-top">
@@ -54,34 +38,37 @@
       </div>
       <div class="profile-bottom">
         <div class="tabs">
-          <div class="">
+          <div class="tab-quizzes is-selected">Quizzes</div>
+          <div class="tab-collections">Collection</div>
+          <span class="tab-selection"></span>
         </div>
       </div>
-    </div>
-
-
-    <div class="index-contents">
-      <div class="main-view">
-        <p><%= @nickname %>さんの投稿一覧</p>
-        <div class="card-list">
-          <% @quizzes.each do |quiz| %>
-            <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
-              <div class="quiz-body">
-                <img src="<%= quiz.image %>" class="card-img-top" alt="...">
-                <h5 class="title"><%= simple_format(quiz.name.truncate(11)) %></h5>
-                <ul class="more_list">
-                  <li>
-                    <%= link_to '削除', "/quizzes/#{quiz.id}", method: :delete %>
-                  </li>
-                  <li>
-                    <%= link_to '編集', "/quizzes/#{quiz.id}/edit", method: :get %>
-                  </li>
-                </ul>
-              </div>
-            <% end %>
-          <% end %>
+      <div class="index-contents">
+        <div class="white-view">
+          <div class="user-list">
+            <h3>投稿一覧</h3>
+            <div class="my-quiz">
+              <% @quizzes.each do |quiz| %>
+                <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+                  <div class="user-quiz">
+                    <img src="<%= quiz.image %>" alt="..." width="150" height="150">
+                    <div class="card-text">
+                      <%= quiz.name.truncate(8) %>
+                    </div>
+                    <div class="iine-icon">
+                      <i class="fas fa-heart heart"></i>
+                      <div class="likes-count">
+                        <%= quiz.likes_count %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= render partial: "quizzes/footer" %>

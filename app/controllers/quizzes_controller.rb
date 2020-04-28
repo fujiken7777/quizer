@@ -1,9 +1,9 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @quizzes = Quiz.includes(:user)
+    @quizzes = Quiz.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -11,7 +11,12 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quizzes = Quiz.create(quiz_params)
+    @quiz = Quiz.new(quiz_params)
+    if @quiz.save
+      render :create
+    else
+      redirect_to new_quiz_path
+    end
   end
 
   def destroy
@@ -25,7 +30,6 @@ class QuizzesController < ApplicationController
   def update
     quiz = Quiz.find(params[:id])
     quiz.update(quiz_params)
-    
   end
 
   def show
@@ -33,7 +37,7 @@ class QuizzesController < ApplicationController
 
   private
   def quiz_params
-    params.require(:quiz).permit(:name, :image, :text, :answer_number, :choice1, :choice2, :choice3, :choice4).merge(user_id: current_user.id)
+    params.require(:quiz).permit(:name, :image, :text, :answer_number, :choice1, :choice2, :choice3, :choice4, :genre_id).merge(user_id: current_user.id)
   end
 
   def set_quiz
