@@ -78,3 +78,4 @@ gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'fog-aws'
+# gem "actionview", ">= 5.2.4.2"
