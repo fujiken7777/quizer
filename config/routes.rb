@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: :show
   post   '/like/:quiz_id' => 'likes#like',   as: 'like'
   delete '/like/:quiz_id' => 'likes#unlike', as: 'unlike'
+  get '/genre/:id',to: 'genre#genre', as: 'genre'
 end

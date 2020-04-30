@@ -4,6 +4,8 @@ class QuizzesController < ApplicationController
 
   def index
     @quizzes = Quiz.includes(:user).order("created_at DESC")
+    # @q = Quiz.ransack(params[:q])
+    # @quizzes = @q.result(distinct: true)
   end
 
   def new
@@ -35,6 +37,12 @@ class QuizzesController < ApplicationController
   def show
   end
 
+  # def search
+  #   @q = Quiz.search(search_params)
+  #   @quizzes = @q.result(distinct: true)
+  # end
+
+
   private
   def quiz_params
     params.require(:quiz).permit(:name, :image, :text, :answer_number, :choice1, :choice2, :choice3, :choice4, :genre_id).merge(user_id: current_user.id)
@@ -47,4 +55,8 @@ class QuizzesController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
+
+  # def search_params
+  #   params.require(:q).permit!
+  # end
 end
