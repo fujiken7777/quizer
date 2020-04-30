@@ -2,7 +2,7 @@
 <div class="main-contents">
   <%= render partial: "genre" %>
   <div class="search-bar">
-    <div class="search-title">What will you teach today?
+    <div class="search-title">
       <%= form_with(url: quizzes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
         <%= form.text_field :keyword, placeholder: "Search for Quizzes", class: "search-input" %>
         <div class="search-send">

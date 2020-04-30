@@ -3,11 +3,13 @@
   <%= render partial: "quizzes/genre" %>
 
   <div class="search-bar">
-    <div class="search-title">What will you teach today?
+    <div class="search-title">
       <%= form_with(url: quizzes_searches_path, local: true, method: :get, class: "search-form") do |form| %>
-        <i class="search-icon fas fa-search"></i>
         <%= form.text_field :keyword, placeholder: "Search for Quizzes", class: "search-input" %>
-        <%= form.submit "検索", class: "search-btn" %>
+        <div class="search-send">
+          <%= form.submit class: "search-btn" %>
+          <i class="search-icon fas fa-search"></i>
+        </div>
       <% end %>
     </div>
     <%= render partial: "quizzes/quiz_list" %>
