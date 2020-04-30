@@ -1,0 +1,24 @@
+<div class="index-contents">
+  <div class="main-view">
+    <div class="white-view">
+      <div class="card-list">
+        <% @quizzes.each do |quiz| %>
+          <%= link_to "/quizzes/#{quiz.id}", method: :get, class: "quiz-link" do %>
+            <div class="quiz-body">
+              <img src="<%= quiz.image %>" class="card-img-top" alt="..." width="100" height="130">
+              <div class="card-text">
+                <%= quiz.name.truncate(11) %>
+              </div>
+              <div class="iine-icon">
+                <i class="fas fa-heart heart"></i>
+                <div class="likes-count">
+                  <%= quiz.likes_count %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
