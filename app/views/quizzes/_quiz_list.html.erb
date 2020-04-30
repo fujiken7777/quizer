@@ -10,9 +10,13 @@
                 <%= quiz.name.truncate(11) %>
               </div>
               <div class="iine-icon">
-                <i class="fas fa-heart heart"></i>
-                <div class="likes-count">
-                  <%= quiz.likes_count %>
+                <i class="fas fa-heart heart">
+                  <div class="likes-count">
+                    <%= quiz.likes_count %>
+                  </div>
+                </i>
+                <div class="user-name">
+                  <%= quiz.user.nickname %>の問題
                 </div>
               </div>
             </div>

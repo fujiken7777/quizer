@@ -148,13 +148,19 @@ footer {
         margin-bottom: 10px;
       }
       .iine-icon {
-        margin-right: 70%;
         text-decoration: none;
+        display: flex;
+        justify-content: space-between;
         .heart {
           color: #ea352d;
+          line-height: 24px;
+          margin-left: 5px;
+          .likes-count {
+            display: inline-block;
+            color: #333;
+          }
         }
-        .likes-count {
-          display: inline-block;
+        .user-name {
           color: #333;
         }
       }
