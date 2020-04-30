@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:edit, :show]
+  before_action :set_quiz, only: [:edit, :show, :update, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
@@ -22,16 +22,14 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    quiz = Quiz.find(params[:id])
-    quiz.destroy
+    @quiz.destroy
   end
 
   def edit
   end
 
   def update
-    quiz = Quiz.find(params[:id])
-    quiz.update(quiz_params)
+    @quiz.update(quiz_params)
   end
 
   def show
