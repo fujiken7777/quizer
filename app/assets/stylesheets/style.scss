@@ -32,8 +32,6 @@ header {
     .user_nav a {
       color: white;
       line-height: 60px;
-      .post {
-      }
     }
   }
 }
@@ -95,19 +93,30 @@ footer {
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
-    .search-icon {
-      font-size: 20px;
-    }
+    display: flex;
+    margin-right: 200px;
+    margin-left: 200px;
     .search-input {
-      height: 54px;
-      width: 60%;
-      margin-right: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1);
+      height: 34px;
+      width: 100%;
+      border-radius: 20px 0 0 20px;
+      padding: 5px 20px;
     }
-    .search-btn {
-      width: 15%;
-      height: 54px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1);
+    .search-send {
+      position: relative;
+      .search-btn {
+        border-radius: 0 20px 20px 0;
+        width: 70px;
+        border: none;
+        background: #25C7D8;
+        color: #25C7D8;
+      }
+      .search-icon {
+        position: absolute;
+        color: #fff;
+        top: 8px;
+        right: 10px;
+      }
     }
   }
 }
@@ -190,7 +199,6 @@ footer {
 }
 
 .submit-btn {
-  float: right;
   padding: 8px 20px;
   font-size: 14px;
   border: 2px solid rgb(5, 108, 252);
