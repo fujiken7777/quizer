@@ -36,34 +36,65 @@
           </div>
         </div>
       </div>
-      <div class="profile-bottom">
-        <div class="tabs">
-          <div class="tab-quizzes is-selected">Quizzes</div>
-          <div class="tab-collections">Collection</div>
-          <span class="tab-selection"></span>
-        </div>
-      </div>
-      <div class="index-contents">
-        <div class="white-view">
-          <div class="user-list">
-            <h3>投稿一覧</h3>
-            <div class="my-quiz">
-              <% @quizzes.each do |quiz| %>
-                <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
-                  <div class="user-quiz">
-                    <img src="<%= quiz.image %>" alt="..." width="150" height="150">
-                    <div class="card-text">
-                      <%= quiz.name.truncate(8) %>
-                    </div>
-                    <div class="iine-icon">
-                      <i class="fas fa-heart heart"></i>
-                      <div class="likes-count">
-                        <%= quiz.likes_count %>
+      <div class="tabs">
+        <input id="quiz" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="quiz">Quizzes</label>
+        <input id="like" type="radio" name="tab_item">
+        <label class="tab_item" for="like">Collection</label>
+        <div class="tab_content" id="quiz_content">
+          <div class="index-contents">
+            <div class="white-view">
+              <div class="user-list">
+                <h3>投稿一覧</h3>
+                <div class="my-quiz">
+                  <% @quizzes.each do |quiz| %>
+                    <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+                      <div class="user-quiz">
+                        <img src="<%= quiz.image %>" alt="..." width="150" height="150">
+                        <div class="card-text">
+                          <%= quiz.name.truncate(8) %>
+                        </div>
+                        <div class="iine-icon">
+                          <i class="fas fa-heart heart"></i>
+                          <div class="likes-count">
+                            <%= quiz.likes_count %>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab_content" id="like_content">
+          <div class="tab_content_description">
+            <div class="index-contents">
+              <div class="white-view">
+                <div class="user-list">
+                  <h3>いいね一覧</h3>
+                  <div class="my-quiz">
+                    <% @likes.each do |like| %>
+                      <% quiz = Quiz.find_by(id: like.quiz_id) %>
+                      <%= link_to "/quizzes/#{quiz.id}", method: :get do %>
+                        <div class="user-quiz">
+                          <img src="<%= quiz.image %>" alt="..." width="150" height="150">
+                          <div class="card-text">
+                            <%= quiz.name.truncate(8) %>
+                          </div>
+                          <div class="iine-icon">
+                            <i class="fas fa-heart heart"></i>
+                            <div class="likes-count">
+                              <%= quiz.likes_count %>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
                   </div>
-                <% end %>
-              <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @users = @user.user_image.url
     @nickname = current_user.nickname
     @quizzes = current_user.quizzes
-    
+    @likes = Like.where(user_id: @user.id)
   end
 
 
