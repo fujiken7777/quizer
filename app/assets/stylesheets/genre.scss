@@ -1,0 +1,55 @@
+#left {
+  color:#676767;
+  font-size:18px;
+  width:200px;
+  height: 100%;
+  .side-title {
+    font-weight:bold;
+    color: rgb(3, 3, 3);
+    background:white;
+    border-top: 5px #4dcff7 outset;
+    border-right: 5px #4dcff7 outset;
+    border-left: 5px #4dcff7 outset;
+    border-bottom: 5px #4dcff7 outset;
+    text-align: center;
+    height: 50px;
+    line-height: 45px;
+  }
+  .side {
+    background-color: #4dcff7;
+    line-height:170%;
+    font-weight:bold;
+    color: white;
+    .side a{
+      color:#036;
+      text-decoration:none;
+      .side a:hover{
+        text-decoration:underline;
+      }
+    }
+    .side-list {
+      padding: 0;
+      position: relative;
+       li {
+        line-height: 1.5;
+        padding: 0.5em 0.5em 0.5em 1.7em;
+        list-style-type: none!important;
+        background: -webkit-linear-gradient(top, #4dcff7 0%, #048eb8 100%);/*グラデーション*/
+        background: linear-gradient(to bottom, #4dcff7 0%, #048eb8 100%);/*グラデーション*/
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        &:before {
+          font-family: "Font Awesome 5 Free";
+          content: "\f138";
+          position: absolute;
+          left : 0.5em;
+          color: white;
+        }
+        .genre-name {
+          text-decoration: none;
+        }
+      } 
+    }
+  }
+}
