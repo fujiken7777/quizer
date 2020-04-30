@@ -44,6 +44,9 @@
 ### いいね機能
 ![画面収録 2020-04-29 17 07 11 mov](https://user-images.githubusercontent.com/61737215/80574937-b7d43f80-8a3d-11ea-9e0a-8b28845cd8f8.gif)
 
+### ジャンル分け
+![画面収録 2020-04-30 13 26 28 mov](https://user-images.githubusercontent.com/61737215/80672041-85cae800-8ae6-11ea-9159-98d36ace5fb9.gif)
+
 ## 機能ならびに使用技術
 - フロントエンド
  - HTML/Sassでのマークアップ
@@ -54,6 +57,7 @@
  - ユーザー画像の登録機能 (gem Carrierwaveを使用)
  - クイズ投稿(/削除)機能
  - ジャンル選択機能(gem active_hashを使用)
+ - クイズをジャンルによる絞り込み機能
  - クイズ正解判別機能
  - いいね機能
  - クイズ検索機能
