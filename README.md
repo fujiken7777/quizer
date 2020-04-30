@@ -45,7 +45,10 @@
 ![画面収録 2020-04-29 17 07 11 mov](https://user-images.githubusercontent.com/61737215/80574937-b7d43f80-8a3d-11ea-9e0a-8b28845cd8f8.gif)
 
 ### ジャンル分け
-![画面収録 2020-04-30 13 26 28 mov](https://user-images.githubusercontent.com/61737215/80672041-85cae800-8ae6-11ea-9159-98d36ace5fb9.gif)
+![画面収録 2020-04-30 18 16 54 mov](https://user-images.githubusercontent.com/61737215/80694768-f0444e00-8b0f-11ea-86f7-e8d5c46e40aa.gif)
+
+### 投稿一覧、いいね一覧確認画面
+![画面収録 2020-04-30 18 23 53 mov](https://user-images.githubusercontent.com/61737215/80694816-ffc39700-8b0f-11ea-9a87-c61d01d257c2.gif)
 
 ## 機能ならびに使用技術
 - フロントエンド
@@ -60,6 +63,7 @@
  - クイズをジャンルによる絞り込み機能
  - クイズ正解判別機能
  - いいね機能
+ - いいね一覧
  - クイズ検索機能
 - インフラ
  - herokuを用いたデプロイ
