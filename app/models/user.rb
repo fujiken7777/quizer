@@ -8,4 +8,10 @@ class User < ApplicationRecord
   mount_uploader :user_image, ImageUploader
   has_many :likes, dependent: :destroy
   has_many :like_stories, through: :likes, source: :quiz
+
+  validates :nickname,
+            :user_image,
+            :email,
+            presence: true
+  validates :email,uniqueness: true
 end
