@@ -271,17 +271,16 @@ footer {
 }
 
 .login-contents {
-  height: calc(100% - 118px);
   padding: 100px;
 
   .contents-main {
     padding: 30px;
     width: 50%;
-    height: 500px;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(black,0.2);
+    background-color: #fff;
   }
 }
 

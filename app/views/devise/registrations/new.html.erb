@@ -5,26 +5,34 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :nickname %> <em>(8 characters maximum)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        <%= f.label :nickname %><span>(8文字以下)</span>
+        <div class="nick-name">
+          <%= f.text_field :nickname, autofocus: true, maxlength: "8" %>
+        </div>
       </div>
 
       <div class="field">
-        <%= f.label :user_image,"ユーザー画像" %><br/>
-        <%= f.file_field :user_image %>
+        <%= f.label :user_image,"ユーザー画像" %>
+        <div class="user-image">
+          <%= f.file_field :user_image %>
+        </div>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :email %>
+        <div class="email">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
       </div>
 
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+        <div class="password">
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
       </div>
 
       <div class="field">
